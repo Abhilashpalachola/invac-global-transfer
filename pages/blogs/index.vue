@@ -2,7 +2,7 @@
     <div class="w-full">
         <A-Nav></A-Nav>
         <div class="px-10 2xl:px-20 py-10 lg:py-10 xl:py-12 2xl:py-14 min-h-screen">
-            <h1 class="text-5xl font-semibold">invaq & Media</h1>
+            <h1 class="text-5xl font-semibold">Blogs & Media</h1>
 
             <div v-if="isLoaded"
                 class="flex flex-wrap justify-evenly xl:grid xl:grid-cols-3 2xl:grid-cols-4 mt-20 gap-x-10 gap-y-10">
