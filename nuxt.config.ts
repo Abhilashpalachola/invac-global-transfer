@@ -16,7 +16,7 @@ export default defineNuxtConfig({
          {
           name: 'google-site-verification',
           content: `1VPbZsDivG10017vszTqb3-93Tu-oy-Gb6-X6mleFHs`
-        }
+        },
       ],
       script: [
         {
