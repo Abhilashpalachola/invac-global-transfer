@@ -12,6 +12,10 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content: `Upgrade to a reliable home central vacuum system from INVAC. Discover our selection of affordable vacuum cleaners and experience the convenience of an automatic central vacuum system.`
+        },
+         {
+          name: 'google-site-verification',
+          content: `1VPbZsDivG10017vszTqb3-93Tu-oy-Gb6-X6mleFHs`
         }
       ],
       script: [
