@@ -1,5 +1,5 @@
 <template>
-   <div class=" w-screen bg-[#1A1A1A] text-white">
+  <div class=" w-screen bg-[#1A1A1A] text-white">
     <NuxtPage />
     <A-Menu v-if="menuState" />
     <A-Cities v-if="citiesState"> </A-Cities>
@@ -7,13 +7,16 @@
   <!-- <div class="h-screen w-screen flex items-center justify-center">
     <h2>404</h2>
   </div> -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55VHW8G" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
 </template>
 
 <script setup lang="ts">
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from "@studio-freight/lenis";
-import axios from "axios";
 import 'vue3-lottie/dist/style.css'
 const menuState = useState('menu', () => false)
 const citiesState = useState("citiesState", () => false);
