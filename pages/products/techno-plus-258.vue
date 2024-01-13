@@ -12,14 +12,14 @@
                                     class="h-5 lg:h-5 xl:h-5 2xl:h-6 transition-opacity duration-500 hover:opacity-75 active:opacity-90"
                                     alt="" /></NuxtLink>
 
-                            <div class="flex items-center text-black">
+                            <a href="tel:+91 9248009941" class="flex items-center text-black">
                                 <p class="lg:text-xs 2xl:text-base leading-3 2xl:leading-5">
                                     Any Questions?
                                     <span class="block font-semibold">Talk to our experts</span>
                                 </p>
 
                                 <img src="@/assets/icons/support.svg" class="lg:h-8 2xl:h-10 ml-2 2xl:ml-4" alt="" />
-                            </div>
+                            </a>
                         </div>
 
                         <div class="flex flex-col gap-y-10 mr-auto pl-10 2xl:pl-20">
@@ -133,9 +133,12 @@
 
                 <div v-else class="px-10 mt-2 2xl:px-20">
                     <div
-                        class="border-2 border-black py-10 justify-center flex items-center px-5 2xl:px-10 2xl:py-12 mt-20 rounded-xl">
+                        class="border-2 border-black py-10 justify-between flex items-center px-5 2xl:px-10 2xl:py-12 mt-20 rounded-xl">
+                        <h3 class="text-sm 2xl:text-lg">₹498305 – ₹790244</h3>
                         <div class="flex items-center gap-x-5">
-                            <h3 class="text-base font-semibold 2xl:text-xl">Get A quote</h3>
+                            <h3 class="text-base font-semibold 2xl:text-xl">
+                                <NuxtLink to="/demo">Get A quote</NuxtLink>
+                            </h3>
                             <img src="@/assets/icons/orange-arrow-right.svg" class="h-5 2xl:h-7" alt="" />
                         </div>
                     </div>
@@ -196,10 +199,14 @@
                         <img src="@/assets/icons/twin-motor.svg" class="w-[4.5rem] " alt="">
                     </div>
 
-                    <NuxtLink to="/demo" class="w-full border-2 flex items-center justify-center border-black mt-10 py-10 rounded-lg px-3">
+                    <NuxtLink to="/demo"
+                        class="w-full border-2 flex items-center justify-between border-black mt-10 py-10 rounded-lg px-3">
+                        <h2 class="text-xs font-semibold">₹4,98,305 – ₹7,90,244</h2>
 
                         <button class="flex items-center gap-x-3">
-                            <h3 class="text-[0.65rem]">Get A quote</h3>
+                            <h3 class="text-[0.65rem]">
+                                <NuxtLink to="/demo">Get A quote</NuxtLink>
+                            </h3>
                             <img src="@/assets/icons/orange-arrow-right.svg" class="h-5" alt="">
                         </button>
                     </NuxtLink>

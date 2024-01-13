@@ -60,7 +60,13 @@ export default defineNuxtConfig({
     "@nuxt/image-edge",
     "@nuxtjs/robots",
     'nuxt-simple-sitemap',
+    "@nuxtjs/supabase",
   ],
+  supabase: {
+    url: "https://dwaedbbzucynbxcjgvbw.supabase.co",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3YWVkYmJ6dWN5bmJ4Y2pndmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDUwNDIxOTIsImV4cCI6MjAyMDYxODE5Mn0.GeeuHiz2RDViQ7Zuvi_Y2Pi6Mombv-0P2xrh9qbPpHY",
+    redirect: false,
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

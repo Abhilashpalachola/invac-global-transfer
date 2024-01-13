@@ -99,9 +99,6 @@
 </template>
   
 <script setup>
-import { ref } from "vue";
-import { addDoc, collection } from "firebase/firestore";
-const { $firestore, $storage } = await useNuxtApp()
 useHead({
     title: `World's Leading Wet and Dry Auto flush Central Vacuum Cleaner | INVAC - Your Cleaning Partner`,
     meta: [
@@ -112,7 +109,6 @@ useHead({
     ]
 })
 
-const forHomeState = ref(false)
 
 definePageMeta({
     scrollToTop: true,
@@ -128,8 +124,10 @@ const currentStage = ref("under-construction");
 const router = useRouter()
 const submittedState = ref(false)
 const date = new Date()
+const WEB3FORMS_ACCESS_KEY = "a7239ade-47db-44c2-94ad-52fb918c5436";
 const submitForm = async () => {
     const formData = {
+        access_key: WEB3FORMS_ACCESS_KEY,
         name: name.value,
         email: email.value,
         phone: phone.value,
@@ -137,22 +135,33 @@ const submitForm = async () => {
         typeOfHome: typeOfHome.value,
         sizeOfHome: sizeOfHome.value,
         currentStage: currentStage.value,
-        clientId: localStorage.getItem('clientId'),
         currentDate: date
     };
     try {
-        await postDemo(formData);
-        const docRef = await addDoc(collection($firestore, "users"), formData);
-        console.log(formData)
-        console.log("Document written with ID: ", docRef.id);
 
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+        const result = await response.json();
+        if (result.success) {
+            console.log(result);
+        }
         submittedState.value = true
         setTimeout(() => {
             submittedState.value = false
             router.push('/')
         }, 2000);
 
-    } catch (error) {
+    }
+
+
+
+    catch (error) {
         console.log(error.message)
     }
 

@@ -164,17 +164,15 @@
 
 <script setup >
 import gsap from 'gsap';
-import { collection, getDocs } from "firebase/firestore";
-import { ref as storageRef, getDownloadURL } from "firebase/storage";
 
-const { $firestore, $storage } = await useNuxtApp();
+const client = useSupabaseClient();
 const collectionArray = ref([]);
 
 const sortedCollectionArray = computed(() => {
-    console.log(
-        "sortedCollectionArray computed property called",
-        collectionArray.value
-    );
+    /*     console.log(
+            "sortedCollectionArray computed property called",
+            collectionArray.value
+        ); */
     //@ts-ignore
     return collectionArray.value.sort((a, b) => a.title.localeCompare(b.title));
 });
@@ -200,26 +198,18 @@ onMounted(async () => {
     })
 
 
-    //@ts-ignore
-    const colRef = collection($firestore, "invac-blogs");
-
     try {
-        console.log(colRef);
+        const { data, error } = await client
+            .from("Invac Blogs")
+            .select()
+            .order("id", { ascending: true });
+        if (error) throw error;
+        collectionArray.value = data;
+        console.log("collectionArray", collectionArray.value);
     } catch (error) {
         // Handle error
+        console.log("error", error);
     }
-
-    const snapshot = await getDocs(colRef);
-    snapshot.docs.forEach(async (doc) => {
-        const data = await doc.data();
-
-        const imageURL = await getDownloadURL(
-            //@ts-ignore
-            storageRef($storage, data.imgFileName)
-        );
-        //@ts-ignore
-        collectionArray.value.push({ ...data, imageURL, id: doc.id });
-    });
 
     // Sort the collectionArray by title in alphabetical order 
     //@ts-ignore

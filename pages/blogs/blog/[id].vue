@@ -16,7 +16,7 @@
 
             <div class="lg:flex h-fit mt-14 lg:mt-40">
                 <div class="lg:w-[40%] 2xl:w-[35%] 3xl:w-[30%] h-full">
-                    <div class="text-5xl">Jun/23</div>
+                    <div class="text-5xl">{{ date }} </div>
                     <div class="mt-7 tracking-[0.5rem] opacity-50 font-semibold text-xs lg:text-lg">
                         By Invac
                     </div>
@@ -40,17 +40,25 @@
 </template>
 
 <script setup>
-import { getDoc, doc } from "firebase/firestore";
-import { ref as storageRef, getDownloadURL } from "firebase/storage";
-
-const { $firestore, $storage } = await useNuxtApp();
 /* const colRef = collection($firestore, "invac-blogs"); */
 const route = useRoute();
 const blogArray = ref([]);
 const blogTitle = ref("");
 const metaDescription = ref("")
+const date = ref("");
 const imageSrc = ref(null);
 const isLoaded = ref(false);
+
+const client = useSupabaseClient();
+
+const convertDate = (date) => {
+    const dateArray = date.split("-");
+    const month = dateArray[1];
+    const day = dateArray[2];
+    const year = dateArray[0];
+    const monthName = new Date(`${month} ${day} ${year}`).toLocaleString("default", { month: "short" });
+    return `${monthName}/${day}`;
+};
 
 useHead({
     title: blogTitle.value,
@@ -61,26 +69,26 @@ useHead({
         }
     ]
 })
+
+
 onMounted(async () => {
     const docId = route.query.id;
-    const docRef = doc($firestore, "invac-blogs", docId);
-    const docSnap = await getDoc(docRef);
 
-    if (docSnap.exists()) {
-        const data = await docSnap.data();
-        console.log("Document data:", data);
-        const imageURL = await getDownloadURL(
-            storageRef($storage, data.imgFileName)
-        );
-
-        imageSrc.value = imageURL;
-        blogTitle.value = data.title;
-        blogArray.value = data.content;
-        metaDescription.value = data.metaDescription
+    try {
+        const { data, error } = await client
+            .from("Invac Blogs")
+            .select()
+            .eq("id", docId);
+        if (error) throw error;
+        blogArray.value = data[0].content;
+        blogTitle.value = data[0].title;
+        metaDescription.value = data[0].meta_description;
+        imageSrc.value = data[0].image;
+        date.value = convertDate(data[0].date);
         isLoaded.value = true;
-    } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+    } catch (error) {
+        // Handle error
+        console.log("error", error);
     }
 });
 </script>

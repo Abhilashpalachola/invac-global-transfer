@@ -9,7 +9,7 @@
                 <NuxtLink v-for="item in sortedCollectionArray" :to="`/blogs/blog/${item.url}?id=${item.id}`"
                     class="w-full sm:w-80 transition-all block mr-auto duration-700 hover:opacity-75 active:opacity-80 cursor-pointer">
                     <div class="h-96 w-full">
-                        <img :src="item.imageURL" class="object-cover h-full rounded-lg w-full" alt="" />
+                        <img :src="item.image" class="object-cover h-full rounded-lg w-full" alt="" />
                     </div>
                     <h3 class="w-full mt-4 font-semibold text-lg">
                         {{ item.title }}
@@ -28,31 +28,25 @@
 </template>
 
 <script setup>
-import { collection, getDocs } from "firebase/firestore";
-import { ref as storageRef, getDownloadURL } from "firebase/storage";
-
-const { $firestore, $storage } = await useNuxtApp();
 
 const collectionArray = ref([]);
 const isLoaded = ref(false);
+const client = useSupabaseClient();
 
 onMounted(async () => {
-    const colRef = collection($firestore, "invac-blogs");
 
     try {
-        console.log(colRef);
+        const { data, error } = await client
+            .from("Invac Blogs")
+            .select()
+            .order("id", { ascending: true });
+        if (error) throw error;
+        collectionArray.value = data;
+        console.log("collectionArray", collectionArray.value);
     } catch (error) {
         // Handle error
+        console.log("error", error);
     }
-
-    const snapshot = await getDocs(colRef);
-    snapshot.docs.forEach(async (doc) => {
-        const data = await doc.data();
-        const imageURL = await getDownloadURL(
-            storageRef($storage, data.imgFileName)
-        );
-        collectionArray.value.push({ ...data, imageURL, id: doc.id });
-    });
 
     // Sort the collectionArray by title in alphabetical order
     collectionArray.value.sort((a, b) => a.title.localeCompare(b.title));
