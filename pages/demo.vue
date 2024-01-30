@@ -124,7 +124,7 @@ const currentStage = ref("under-construction");
 const router = useRouter()
 const submittedState = ref(false)
 const date = new Date()
-const WEB3FORMS_ACCESS_KEY = "a7239ade-47db-44c2-94ad-52fb918c5436";
+const WEB3FORMS_ACCESS_KEY = "28ceb199-9300-45b6-8aeb-43e0270cb700";
 const submitForm = async () => {
     const formData = {
         access_key: WEB3FORMS_ACCESS_KEY,
