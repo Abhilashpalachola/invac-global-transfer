@@ -62,7 +62,7 @@
                 </div>
                 <div class="text-lg mt-10">
                     <div class="overflow-y-clip">
-                        <div class="translate-y-[100%] footer-anim-pop-wide"> International Headquarters=
+                        <div class="translate-y-[100%] footer-anim-pop-wide"> International Headquarters
                         </div>
                     </div>
 
