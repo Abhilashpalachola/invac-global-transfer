@@ -24,9 +24,8 @@
                         <img src="@/assets/icons/x.svg" class="h-10 w-10" alt="" />
                     </NuxtLink>
                 </div>
-
-                <div class="place-self-end w-full flex flex-col gap-y-14">
-                    <input v-model="name" type="text"
+<form @submit.prevent="submitForm" class="place-self-end w-full flex flex-col gap-y-14">
+                    <!-- <input v-model="name" type="text"
                         class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
                         placeholder="Name*" />
                     <input v-model="email" type="email"
@@ -39,7 +38,39 @@
                     <input v-model="city" type="text"
                         class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
                         placeholder="City" />
+                    -->
+                     <div>
+                        <input v-model="nameRef" type="text" required
+                            class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
+                            placeholder="Name*" :class="{ 'border-red-500': !isNameValid }" />
+                        <!-- Display error message if name is not valid -->
+                        <span v-if="!isNameValid" class="text-red-500">Name should not contain special characters or numbers.</span>
+                    </div>
+                     <div>
+                        <input v-model="emailRef" type="email"
+                        required
+                            class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
+                            placeholder="Email ID*" :class="{ 'border-red-500': !isEmailValid }" />
+                        <!-- Display error message if email is not valid -->
+                        <span v-if="!isEmailValid" class="text-red-500">Please enter a valid email address.</span>
+                    </div>
+                    <div>
+                            <input v-model="phoneRef" type="text"
+                            required
+                                class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
+                                placeholder="Phone No*" :class="{ 'border-red-500': !isPhoneValid }" />
+                            <!-- Display error message if phone number is not valid -->
+                            <span v-if="!isPhoneValid" class="text-red-500">Phone number should be 10 digits long.</span>
 
+                         </div>
+                     <div>
+                            <input v-model="cityRef" type="text" required
+                                class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
+                                placeholder="City*" :class="{ 'border-red-500': !isCityValid }" />
+                            <!-- Display error message if city is not valid -->
+                            <span v-if="!isCityValid" class="text-red-500">Please enter a valid city name.</span>
+
+                        </div>
                     <div class="lg:w-full pb-3 flex text-lg lg:text-2xl justify-between border-b-2 border-black">
                         <select v-model="typeOfHome" class="w-full outline-none">
                             <option value="apartment">Apartment</option>
@@ -77,11 +108,11 @@
                         </div>
                     </div>
 
-                    <div class="flex ml-auto w-fit my-2 lg:my-14">
-                        <span @click="submitForm" class="text-4xl tracking-[0.6rem] opacity-70 cursor-pointer">Send</span>
+                    <button type="submit" class="flex ml-auto w-fit my-2 lg:my-14">
+                        <span class="text-4xl tracking-[0.6rem] opacity-70 cursor-pointer">Send</span>
                         <img src="@/assets/icons/orange-arrow-right.svg" class="h-10 ml-3" alt="" />
-                    </div>
-                </div>
+                    </button>
+                </form>
             </div>
         </div>
 
@@ -114,10 +145,10 @@ definePageMeta({
     scrollToTop: true,
     pageTransition: false,
 });
-const name = ref("");
-const email = ref("");
-const phone = ref("");
-const city = ref("");
+const nameRef = ref("");
+const emailRef = ref("");
+const phoneRef = ref("");
+const cityRef = ref("");
 const typeOfHome = ref("apartment");
 const sizeOfHome = ref("2000-sft");
 const currentStage = ref("under-construction");
@@ -125,18 +156,27 @@ const router = useRouter()
 const submittedState = ref(false)
 const date = new Date()
 const WEB3FORMS_ACCESS_KEY = "298883d0-8170-41ea-8f34-2663da8986c0";
+
+   const isNameValid = computed(() => nameRef.value ?/^[A-Za-z\s]+$/.test(nameRef.value) :true);
+const isEmailValid = computed(() => emailRef.value ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailRef.value):true);
+const isPhoneValid = computed(() => phoneRef.value? /^\d{10}$/.test(phoneRef.value):true);
+const isCityValid = computed(() => cityRef.value ? /^[A-Za-z\s]+$/.test(cityRef.value):true);
+
+    
 const submitForm = async () => {
     const formData = {
         access_key: WEB3FORMS_ACCESS_KEY,
-        name: name.value,
-        email: email.value,
-        phone: phone.value,
-        city: city.value,
+        name: nameRef.value,
+        email: emailRef.value,
+        phone: phoneRef.value,
+        city: cityRef.value,
         typeOfHome: typeOfHome.value,
         sizeOfHome: sizeOfHome.value,
         currentStage: currentStage.value,
         currentDate: date
     };
+         if(isNameValid._value && isEmailValid._value && isPhoneValid._value && isCityValid._value){
+
     try {
 
         const response = await fetch("https://api.web3forms.com/submit", {
@@ -164,6 +204,7 @@ const submitForm = async () => {
     catch (error) {
         console.log(error.message)
     }
+         }
 
 };
 </script>
