@@ -72,13 +72,14 @@ useHead({
 
 
 onMounted(async () => {
-    const docId = route.query.id;
+    const docId = route.params.id;
+    console.log(docId,'Doc Id')
 
     try {
         const { data, error } = await client
             .from("Invac Blogs")
             .select()
-            .eq("id", docId);
+            .eq("url", docId);
         if (error) throw error;
         blogArray.value = data[0].content;
         blogTitle.value = data[0].title;
