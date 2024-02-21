@@ -6,7 +6,7 @@
         </div>
 
         <div class="w-full hidden lg:grid grid-cols-2 px-10 lg:px-20  gap-x-10 2xl:gap-x-14 mt-20">
-            <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality?id=3" class="w-full cursor-pointer">
+            <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality" class="w-full cursor-pointer">
                 <div class="h-[calc(60vh+2.5rem)] w-full rounded-md bg-neutral-800">
                     <NuxtImg format="webp" class="h-full w-full rounded-md object-cover" src="/images/blog/Asthama.jpg">
                     </NuxtImg>
@@ -21,7 +21,7 @@
             </NuxtLink>
             <div class="w-full">
                 <div class="space-y-10">
-                    <NuxtLink to="/blogs/blog/Healthy-Cleaning-Poducts?id=4" class="grid grid-cols-2">
+                    <NuxtLink to="/blogs/blog/Healthy-Cleaning-Poducts" class="grid grid-cols-2">
                         <div class="h-[30vh] w-full bg-neutral-800 rounded-md">
                             <NuxtImg format="webp" class="h-full w-full rounded-md object-cover"
                                 src="/images/blog/Retain Air Freshness and Efficiency with an Industrial Central Vacuum System-01.png">
@@ -36,7 +36,7 @@
                         </div>
                     </NuxtLink>
 
-                    <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality?id=3" class="grid grid-cols-2">
+                    <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality" class="grid grid-cols-2">
                         <div class="h-[30vh] w-full bg-neutral-800 rounded-md">
                             <NuxtImg format="webp" class="h-full w-full rounded-md object-cover"
                                 src="/images/blog/Tips to Make Home Cleaning Effortless.jpg">
@@ -56,7 +56,7 @@
 
         <div class="w-full overflow-x-clip">
             <div class="w-full flex overflow-x-auto gap-x-7 lg:hidden mt-10 pl-10">
-                <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality?id=3" class="w-[85%] min-w-[85%]">
+                <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality" class="w-[85%] min-w-[85%]">
                     <div class="w-full h-64 rounded-md bg-neutral-800">
                         <NuxtImg format="webp" class="h-full w-full rounded-md object-cover" src="/images/blog/Asthama.jpg">
                         </NuxtImg>
@@ -65,7 +65,7 @@
                     <div class="text-neutral-600 font-semibold text-lg mt-5">View More</div>
                 </NuxtLink>
 
-                <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality?id=2" class="w-[85%] min-w-[85%]">
+                <NuxtLink to="/blogs/blog/Enhance-Indoor-Air-Quality" class="w-[85%] min-w-[85%]">
                     <div class="w-full h-64 rounded-md bg-neutral-800">
                         <NuxtImg format="webp" class="h-full w-full rounded-md object-cover"
                             src="/images/blog/Retain Air Freshness and Efficiency with an Industrial Central Vacuum System-01.png">

@@ -89,7 +89,7 @@
                     <h2 class="font-semibold text-xl mt-24 text-[#f16012]">Popular Searches</h2>
                     <div class="w-full text-sm lg:text-sm mt-10">
                         <div v-for="item in sortedCollectionArray" class="inline">
-                            <NuxtLink :to="`/blogs/blog/${item.url}?id=${item.id}`"
+                            <NuxtLink :to="item.to"
                                 class="hover:text-[#f16012] cursor-pointer transition-colors duration-700"> {{ item.title }}
                             </NuxtLink> |
                         </div>
@@ -165,17 +165,33 @@
 <script setup >
 import gsap from 'gsap';
 
-const client = useSupabaseClient();
-const collectionArray = ref([]);
 
-const sortedCollectionArray = computed(() => {
-    /*     console.log(
-            "sortedCollectionArray computed property called",
-            collectionArray.value
-        ); */
-    //@ts-ignore
-    return collectionArray.value.sort((a, b) => a.title.localeCompare(b.title));
-});
+const sortedCollectionArray = ref([
+    { to: '/accessories/floor-brush-without-wheels-horse-hair', title: 'floor brush cleaner' },
+    { to: '/accessories/floor-brush-without-wheels-horse-hair', title: 'central vac floor brush' },
+    { to: '/accessories/carpet-brush', title: 'Carpet Brush' },
+    { to: '/accessories/carpet-brush', title: 'hard carpet brush' },
+    { to: '/accessories/reversible-brush-without-wheels-horse-hair', title: 'Reversible Brush' },
+    { to: '/accessories/dusting-tool', title: 'dusting brush' },
+    { to: '/accessories/squeegee-on-wheels', title: 'squeegee' },
+    { to: '/accessories/squeegee-on-wheels', title: 'floor squeegee' },
+    { to: '/accessories/mop', title: 'Mop Without wheels Horse hair' },
+    { to: '/accessories/mop', title: 'central vacuum mop' },
+    { to: '/accessories/delicate-dust', title: 'Delicate Dust Brush' },
+    { to: '/accessories/crevice-tool', title: 'Crevice Tool' },
+    { to: '/accessories/crevice-tool', title: 'crevice cleaning brush' },
+    { to: '/accessories/upholstery-tool', title: 'Upholstry Tool' },
+    { to: '/accessories/upholstery-tool', title: 'upholstry brush' },
+    { to: '/accessories/stainless-steel', title: 'Stainless steel Carpet Tools' },
+    { to: '/accessories', title: 'Accessories for Central Vacuum' },
+    { to: '/accessories/cabinet-vac', title: 'Kitchen Cabinet Central Vacuums' },
+    { to: '/accessories/kick-vac', title: 'KickVac for Kitchen Cabinet' },
+    { to: '/accessories/kick-vac', title: 'KickVac Kitchen' },
+    { to: '/accessories/drawer-vac', title: 'Drawer Vac for Morden Kitchen' },
+    { to: '/accessories/speedy-vac', title: 'Speedy Vac for Bathrooms' },
+    { to: '/accessories/retra-vac', title: 'Retra Vac for Messy Cables' },
+    { to: '/', title: 'Top Central Vacuum System' }
+])
 //TODO change out collection images to white images no more blm
 const citiesState = useState("citiesState");
 onMounted(async () => {
@@ -198,21 +214,10 @@ onMounted(async () => {
     })
 
 
-    try {
-        const { data, error } = await client
-            .from("Invac Blogs")
-            .select()
-            .order("id", { ascending: true });
-        if (error) throw error;
-        collectionArray.value = data;
-        console.log("collectionArray", collectionArray.value);
-    } catch (error) {
-        // Handle error
-        console.log("error", error);
-    }
+
 
     // Sort the collectionArray by title in alphabetical order 
     //@ts-ignore
-    collectionArray.value.sort((a, b) => a.title.localeCompare(b.title));
+
 })
 </script>
