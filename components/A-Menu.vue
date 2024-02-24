@@ -44,7 +44,7 @@
                 <div class="translate-y-[100%]" ref="contactUs">
                     <a href="tel:+919248009941" to="/contact-us" @click="triggerClose"
                         class="text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl block w-fit font-normal border-[#f47921] transition-all duration-500 cursor-pointer active:opacity-70 hover:border-b-4 pb-3">
-                        Contact Us</a>
+                        Call Us</a>
                 </div>
             </div>
         </div>

@@ -14,17 +14,15 @@
                 </h2>
             </div>
             <div class="lg:w-[50%] bg-white text-black lg:min-w-[50%] h-full pt-14 pb-10 px-10 lg:px-20 grid">
-                <div class="w-full flex justify-between items-center place-self-start min-h-fit max-h-fit">
-                    <div @click="menuState = true" class="hidden opacity-0 lg:flex cursor-pointer items-center">
-                        <span class="tracking-[0.8rem] text-xl block">Products</span>
-                        <img src="@/assets/icons/chevron-down.svg" class="h-5 w-5" alt="" />
-                    </div>
+                <div class="w-full flex justify-end items-center place-self-start min-h-fit max-h-fit">
+
 
                     <NuxtLink class="hidden lg:block" to="/">
                         <img src="@/assets/icons/x.svg" class="h-10 w-10" alt="" />
                     </NuxtLink>
                 </div>
-<form @submit.prevent="submitForm" class="place-self-end w-full flex flex-col gap-y-14">
+
+                <form @submit.prevent="submitForm" class="place-self-end w-full flex flex-col gap-y-14">
                     <!-- <input v-model="name" type="text"
                         class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
                         placeholder="Name*" />
@@ -39,38 +37,37 @@
                         class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
                         placeholder="City" />
                     -->
-                     <div>
+                    <div>
                         <input v-model="nameRef" type="text" required
                             class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
                             placeholder="Name*" :class="{ 'border-red-500': !isNameValid }" />
                         <!-- Display error message if name is not valid -->
-                        <span v-if="!isNameValid" class="text-red-500">Name should not contain special characters or numbers.</span>
+                        <span v-if="!isNameValid" class="text-red-500">Name should not contain special characters or
+                            numbers.</span>
                     </div>
-                     <div>
-                        <input v-model="emailRef" type="email"
-                        required
+                    <div>
+                        <input v-model="emailRef" type="email" required
                             class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
                             placeholder="Email ID*" :class="{ 'border-red-500': !isEmailValid }" />
                         <!-- Display error message if email is not valid -->
                         <span v-if="!isEmailValid" class="text-red-500">Please enter a valid email address.</span>
                     </div>
                     <div>
-                            <input v-model="phoneRef" type="text"
-                            required
-                                class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
-                                placeholder="Phone No*" :class="{ 'border-red-500': !isPhoneValid }" />
-                            <!-- Display error message if phone number is not valid -->
-                            <span v-if="!isPhoneValid" class="text-red-500">Phone number should be 10 digits long.</span>
+                        <input v-model="phoneRef" type="text" required
+                            class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
+                            placeholder="Phone No*" :class="{ 'border-red-500': !isPhoneValid }" />
+                        <!-- Display error message if phone number is not valid -->
+                        <span v-if="!isPhoneValid" class="text-red-500">Phone number should be 10 digits long.</span>
 
-                         </div>
-                     <div>
-                            <input v-model="cityRef" type="text" required
-                                class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
-                                placeholder="City*" :class="{ 'border-red-500': !isCityValid }" />
-                            <!-- Display error message if city is not valid -->
-                            <span v-if="!isCityValid" class="text-red-500">Please enter a valid city name.</span>
+                    </div>
+                    <div>
+                        <input v-model="cityRef" type="text" required
+                            class="w-full outline-none text-lg lg:text-2xl border-neutral-600 border-b-2 pb-3"
+                            placeholder="City*" :class="{ 'border-red-500': !isCityValid }" />
+                        <!-- Display error message if city is not valid -->
+                        <span v-if="!isCityValid" class="text-red-500">Please enter a valid city name.</span>
 
-                        </div>
+                    </div>
                     <div class="lg:w-full pb-3 flex text-lg lg:text-2xl justify-between border-b-2 border-black">
                         <select v-model="typeOfHome" class="w-full outline-none">
                             <option value="apartment">Apartment</option>
@@ -122,8 +119,9 @@
                 <img src="@/assets/icons/logo-white.svg" class="h-7 lg:h-7 xl:h-8 2xl:h-9 animate-bounce duration-500"
                     alt="">
             </h3>
+            <h3 class=" text-lg lg:text-xl text-black">Thank you</h3>
             <h3 class=" text-lg lg:text-xl text-black">
-                Our team will be in touch with you shortly.
+                Thank you, we will get back to you shortly.
             </h3>
         </div>
     </div>
@@ -131,11 +129,11 @@
   
 <script setup>
 useHead({
-    title: `World's Leading Wet and Dry Auto flush Central Vacuum Cleaner | INVAC - Your Cleaning Partner`,
+    title: `Experience InVac Central Vacuum System | Schedule Your Demo Now`,
     meta: [
         {
             name: 'description',
-            content: `Upgrade to a reliable home central vacuum system from INVAC. Discover our selection of affordable vacuum cleaners and experience the convenience of an automatic central vacuum system.`
+            content: `Explore the potential of our products by booking a demo now for an engaging interaction.`
         }
     ]
 })
@@ -157,12 +155,11 @@ const submittedState = ref(false)
 const date = new Date()
 const WEB3FORMS_ACCESS_KEY = "298883d0-8170-41ea-8f34-2663da8986c0";
 
-   const isNameValid = computed(() => nameRef.value ?/^[A-Za-z\s]+$/.test(nameRef.value) :true);
-const isEmailValid = computed(() => emailRef.value ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailRef.value):true);
-const isPhoneValid = computed(() => phoneRef.value? /^\d{10}$/.test(phoneRef.value):true);
-const isCityValid = computed(() => cityRef.value ? /^[A-Za-z\s]+$/.test(cityRef.value):true);
+const isNameValid = computed(() => nameRef.value ? /^[A-Za-z\s]+$/.test(nameRef.value) : true);
+const isEmailValid = computed(() => emailRef.value ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailRef.value) : true);
+const isPhoneValid = computed(() => phoneRef.value ? /^\d{10}$/.test(phoneRef.value) : true);
+const isCityValid = computed(() => cityRef.value ? /^[A-Za-z\s]+$/.test(cityRef.value) : true);
 
-    
 const submitForm = async () => {
     const formData = {
         access_key: WEB3FORMS_ACCESS_KEY,
@@ -175,36 +172,34 @@ const submitForm = async () => {
         currentStage: currentStage.value,
         currentDate: date
     };
-         if(isNameValid._value && isEmailValid._value && isPhoneValid._value && isCityValid._value){
+    if (isNameValid._value && isEmailValid._value && isPhoneValid._value && isCityValid._value) {
 
-    try {
+        try {
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
-        const result = await response.json();
-        if (result.success) {
-            console.log(result);
-        }
-        submittedState.value = true
-        setTimeout(() => {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+            const result = await response.json();
+            if (result.success) {
+                console.log(result);
+            }
+            submittedState.value = true
             submittedState.value = false
-            router.push('/')
-        }, 2000);
+            router.push('/thank-you')
 
+        }
+
+
+
+        catch (error) {
+            console.log(error.message)
+        }
     }
-
-
-
-    catch (error) {
-        console.log(error.message)
-    }
-         }
 
 };
 </script>

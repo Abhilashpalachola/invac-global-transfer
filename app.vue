@@ -31,30 +31,18 @@ const route = useRoute()
 
 onMounted(async () => {
   const lenis = new Lenis()
-  function raf(time: any) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
+
+  lenis.on('scroll', (e:any) => {
+    console.log(e)
+  })
 
   lenis.on('scroll', ScrollTrigger.update)
 
   gsap.ticker.add((time) => {
     lenis.raf(time * 1000)
   })
-  function getClientId(): string {
-    const existingClientId = localStorage.getItem('clientId');
-    if (existingClientId) {
-      return existingClientId;
-    } else {
-      const newClientId = crypto.randomUUID();
-      localStorage.setItem('clientId', newClientId);
-      return newClientId;
-    }
-  }
-  console.log(getClientId())
 
-  requestAnimationFrame(raf)
-  //data collection starts here
+  gsap.ticker.lagSmoothing(0)
 
 });
 

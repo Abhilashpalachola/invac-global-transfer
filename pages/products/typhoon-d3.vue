@@ -116,7 +116,7 @@
                         <div class="grid grid-cols-4 items-center justify-evenly pr-2 w-full px-5 2xl:px-10 pt-4">
                             <div class="flex flex-col gap-y-2 items-center">
                                 <h2 class="font-semibold lg:text-xs 2xl:text-base">Motor</h2>
-                                <p class="text-sm 2xl:text-lg">1</p>
+                                <p class="text-sm 2xl:text-lg">Stage 2</p>
                             </div>
 
                             <div class="flex flex-col gap-y-2 items-center">
@@ -141,11 +141,16 @@
                     <div
                         class="border-2 border-black py-10 justify-between flex items-center px-5 2xl:px-10 2xl:py-12 mt-20 rounded-xl">
                         <h3 class="text-sm 2xl:text-lg">₹2,10,000 - ₹22,2,0000</h3>
-                        <div class="flex items-center gap-x-5">
+                        <!-- <div class="flex items-center gap-x-5">
                             <h3 class="text-base font-semibold 2xl:text-xl">Get A quote</h3>
                             <img src="@/assets/icons/orange-arrow-right.svg" class="h-5 2xl:h-7" alt="" />
-                        </div>
+                        </div> -->
+                        <NuxtLink to="/demo" class="flex items-center gap-x-5 ">
+                                    <h3 class=" text-base font-semibold 2xl:text-xl"> Get A quote</h3>
+                                     <img src="@/assets/icons/orange-arrow-right.svg" class="h-5 2xl:h-7" alt="" />
+                                </NuxtLink>
                     </div>
+                    
 
                     <div class="2xl:text-sm font-medium mt-5 2xl:mt-8 text-xs">
                         *This pricing is only for the Product. Installation and piping are
@@ -211,12 +216,16 @@
                         class="w-full border-2 flex items-center justify-between border-black mt-10 py-10 rounded-lg px-3">
                         <h2 class="text-xs font-semibold">₹2,10,000 - ₹22,20,000</h2>
 
-                        <button class="flex items-center gap-x-3">
+                        <!-- <button class="flex items-center gap-x-3">
                             <h3 class="text-[0.65rem]">
                                 <NuxtLink to="/demo">Get A quote</NuxtLink>
                             </h3>
                             <img src="@/assets/icons/orange-arrow-right.svg" class="h-5" alt="">
-                        </button>
+                        </button> -->
+                        <NuxtLink to="/demo" class="flex items-center gap-x-5 ">
+                                    <h3 class=" text-base font-semibold 2xl:text-xl"> Get A quote</h3>
+                                     <img src="@/assets/icons/orange-arrow-right.svg" class="h-5 2xl:h-7" alt="" />
+                                </NuxtLink>
                     </NuxtLink>
 
                     <div class="mt-4 text-xs">

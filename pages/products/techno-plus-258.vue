@@ -88,7 +88,7 @@
                             class="grid grid-cols-4 items-center justify-evenly pr-2 w-full px-5 2xl:px-10 pb-4 border-b-2 border-black">
                             <div class="flex flex-col gap-y-2 items-center">
                                 <h2 class="font-semibold lg:text-xs 2xl:text-base">Airwatts</h2>
-                                <p class="text-sm 2xl:text-lg">2x534</p>
+                                <p class="text-sm 2xl:text-lg">--</p>
                             </div>
 
                             <div class="flex flex-col gap-y-2 items-center">
@@ -135,12 +135,16 @@
                     <div
                         class="border-2 border-black py-10 justify-between flex items-center px-5 2xl:px-10 2xl:py-12 mt-20 rounded-xl">
                         <h3 class="text-sm 2xl:text-lg">₹498305 – ₹790244</h3>
-                        <div class="flex items-center gap-x-5">
+                        <!-- <div class="flex items-center gap-x-5">
                             <h3 class="text-base font-semibold 2xl:text-xl">
                                 <NuxtLink to="/demo">Get A quote</NuxtLink>
                             </h3>
                             <img src="@/assets/icons/orange-arrow-right.svg" class="h-5 2xl:h-7" alt="" />
-                        </div>
+                        </div> -->
+                        <NuxtLink to="/demo" class="flex items-center gap-x-5 ">
+                                    <h3 class=" text-base font-semibold 2xl:text-xl"> Get A quote</h3>
+                                     <img src="@/assets/icons/orange-arrow-right.svg" class="h-5 2xl:h-7" alt="" />
+                                </NuxtLink>
                     </div>
 
                     <div class="2xl:text-sm font-medium mt-5 2xl:mt-8 text-xs">
