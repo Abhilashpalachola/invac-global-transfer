@@ -38,7 +38,7 @@
 
                     <div ref="secThree" class="flex flex-col items-center gap-y-14">
                         <img src="@/assets/icons/wet-and-dry-waste.svg" class="lg:h-[5.30rem] xl:h-20 2xl:h-28" alt="">
-                        <img src="@/assets/icons/pan-india-after-sales-support.svg" class="lg:h-[5.30rem] xl:h-20 2xl:h-28"
+                        <img src="@/assets/icons/global-invac.svg" class="lg:h-[5.30rem] xl:h-20 2xl:h-28"
                             alt="">
                     </div>
 
@@ -82,7 +82,7 @@
                             class="h-16 translate-y-[100%] second-section-responsive-slide-up" alt="">
                     </div>
                     <div class="overflow-y-clip">
-                        <img src="@/assets/icons/pan-india-after-sales-support.svg"
+                        <img src="@/assets/icons/global-invac.svg"
                             class="h-16 translate-y-[100%] second-section-responsive-slide-up" alt="">
                     </div>
                     <div class="overflow-y-clip">
