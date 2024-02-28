@@ -13,7 +13,7 @@
 
                             <NuxtLink to="/"><img src="@/assets/icons/logo-white.svg"
                                     class="h-5 lg:h-5 xl:h-5 2xl:h-6 transition-opacity duration-500 hover:opacity-75 active:opacity-90"
-                                    alt=""></NuxtLink>
+                                    alt="logo"></NuxtLink>
 
 
                             <div class="flex items-center">

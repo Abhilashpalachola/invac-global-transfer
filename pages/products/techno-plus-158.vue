@@ -4,7 +4,7 @@
             <div class="w-[55%] min-h-screen max-h-screen h-screen sticky top-0">
                 <div class="h-full w-full relative">
                     <img src="@/assets/products/static/techno-plus-158.png" class="h-full w-full object-cover object-center"
-                        alt="" />
+                        alt="techno-plus-158" />
                     <div class="h-full w-full absolute top-0 flex flex-col justify-between">
                         <div
                             class="w-full flex items-center justify-between px-10 2xl:px-20 py-10 lg:py-10 xl:py-12 2xl:py-14">
@@ -18,7 +18,7 @@
                                     <span class="block font-semibold">Talk to our experts</span>
                                 </p>
 
-                                <img src="@/assets/icons/support.svg" class="lg:h-8 2xl:h-10 ml-2 2xl:ml-4" alt="" />
+                                <img src="@/assets/icons/support.svg" class="lg:h-8 2xl:h-10 ml-2 2xl:ml-4" alt="support" />
                             </a>
 
 
@@ -160,7 +160,7 @@
         <div class="lg:hidden relative bg-white">
 
             <div class="h-[70vh] w-full">
-                <img src="@/assets/products/static/techno-plus-158.png" class="h-full w-full object-cover" alt="">
+                <img src="@/assets/products/static/techno-plus-158.png" class="h-full w-full object-cover" alt="techno-plus-158">
             </div>
             <div class="w-full px-10 pb-10 text-black">
                 <div class="w-full flex items-center justify-center py-14">

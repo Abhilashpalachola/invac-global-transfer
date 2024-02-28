@@ -18,7 +18,4 @@ definePageMeta({
   scrollToTop: true,
   pageTransition: false,
 });
-
-
-
 </script>
